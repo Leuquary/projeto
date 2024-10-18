@@ -12,7 +12,8 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
+    environment: Prod
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -28,3 +29,9 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          
+      - name: Print URL
+        run: echo "Teste ${{ vars.URL}}"
+
+      - name: Print Secret
+        run: echo "Teste ${{ secrets.senha }}"
